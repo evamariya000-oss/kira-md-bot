@@ -22,7 +22,7 @@ module.exports = {
         // 🔥 Dynamic Bot, Owner & Image (Independent for Main & Pair Bots)
         const botName = config.botName || process.env.BOT_NAME || "KIRA X MD";
         const ownerName = config.ownerName || process.env.OWNER_NAME || "Madhav";
-        const menuImage = config.menuImage || process.env.MENU_IMAGE || "https://files.catbox.moe/22x0j5.jpeg";
+        const menuImage = config.menuImage || process.env.MENU_IMAGE || "https://files.catbox.moe/svk9e1.jpg";
         
         const mode = global.botMode || config.botMode || "public"; 
         
