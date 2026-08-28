@@ -36,13 +36,13 @@ DATABASE.authenticate()
 module.exports = {
     VERSION: require("./package.json").version || "1.0.0",
     SESSION_ID: process.env.SESSION_ID || "",
-    SUDO: process.env.SUDO || "917012984396",
+    SUDO: process.env.SUDO || "918086460391",
     WORK_TYPE: process.env.WORK_TYPE || "public",
     
     // Bot Info & Branding
-    BOT_INFO: process.env.BOT_INFO || "KIRA MD;MY BOT;https://url.sparky.biz.id/5ftLiA.jpg",
-    AUDIO_DATA: process.env.AUDIO_DATA || "KIRA MD;MY BOT;https://files.catbox.moe/ttdne9.jpg",
-    STICKER_DATA: process.env.STICKER_DATA || "KIRA MD;MY BOT",
+    BOT_INFO: process.env.BOT_INFO || "ᴇᴠᴀ-ᴍᴀʀɪʏᴀ🕊️;𝑨𝒓𝒋𝒖𝒖;https://files.catbox.moe/svk9e1.jpg",
+    AUDIO_DATA: process.env.AUDIO_DATA || "ᴇᴠᴀ-ᴍᴀʀɪʏᴀ🕊️;𝑨𝒓𝒋𝒖𝒖;https://files.catbox.moe/svk9e1.jpg",
+    STICKER_DATA: process.env.STICKER_DATA || "ᴇᴠᴀ-ᴍᴀʀɪʏᴀ🕊️;𝑨𝒓𝒋𝒖𝒖",
     ALIVE: process.env.ALIVE || "Hello! I am Active Online 🚀",
     
     // Auto Features
