@@ -1,29 +1,33 @@
+const config = require('../config');
+
 module.exports = {
     name: "alive",
-    alias: ["status"],
-    category: "main",
-    description: "Check bot status",
+    alias: ["botinfo", "info"],
+    desc: "Check bot online status & info",
+    category: "general",
+    async execute(conn, mek, m, { reply, pushName }) {
+        try {
+            // Read from config file
+            let botInfo = (config.BOT_INFO || "ᴇᴠᴀ-ᴍᴀʀɪʏᴀ🕊️;𝑨𝒓𝒋𝒖𝒖;https://files.catbox.moe/svk9e1.jpg").split(';');
+            let botName = botInfo[0] || "KIRA MD";
+            let ownerName = botInfo[1] || "OWNER";
+            let imageUrl = botInfo[2] || "https://files.catbox.moe/svk9e1.jpg";
 
-    async execute(sock, msg) {
-        const jid = msg.key.remoteJid;
+            let caption = `👋 Hi ${pushName || 'User'},\n\n` +
+                          `🤖 *Bot Name:* ${botName}\n` +
+                          `👑 *Owner:* ${ownerName}\n` +
+                          `⚡ *Status:* Online & Active 🚀\n\n` +
+                          `> ${config.ALIVE || "Bot is running fine!"}`;
 
-        const ms = Date.now() - (global.startTime || Date.now());
+            // Send with Banner Image
+            return await conn.sendMessage(m.chat, {
+                image: { url: imageUrl },
+                caption: caption
+            }, { quoted: m });
 
-        const d = Math.floor(ms / (24 * 60 * 60 * 1000));
-        const h = Math.floor((ms % (24 * 60 * 60 * 1000)) / (60 * 60 * 1000));
-        const m = Math.floor((ms % (60 * 60 * 1000)) / (60 * 1000));
-        const s = Math.floor((ms % (60 * 1000)) / 1000);
-
-        const uptime = `${d}d ${h}h ${m}m ${s}s`;
-
-        await sock.sendMessage(
-            jid,
-            {
-                text: `🩸 *I'm Alive, Senpai!*
-
-⏱️ *Uptime:* ${uptime}`
-            },
-            { quoted: msg }
-        );
+        } catch (error) {
+            console.error("Alive Error:", error);
+            return reply(`❌ Error: ${error.message}`);
+        }
     }
 };
